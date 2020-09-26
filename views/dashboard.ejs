@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title> 
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/notas.js"></script>
+</head>
+<body>
+<%- include('./navbar') %>
+<div class="container-fluid" id="dash">
+    <div class="row">
+        <div class="col-4"><canvas id="myChart"></canvas></div>
+        <div class="col-4"><canvas id="myChart2"></canvas></div>
+        <div class="col-4"><canvas id="myChart3"></canvas></div>
+    </div>
+    <div class="row">
+        <div class="col-12 centro">
+            <h3>Médias gerais</h3>
+            <span class="pequeno">(os valores mostrados aqui contabilizam a nota de todas as disciplinas somadas e divididas)</span>
+        </div>
+    </div>
+    <div class="row" id="average">
+        <div class="card col-1" id="av1" style="color: white;"></div>
+        <div class="card col-1" id="av2" style="color: white;"></div>
+        <div class="card col-1" id="av3" style="color: white;"></div>
+        <div class="card col-1" id="desvioav1" style="background-color: #458B74; color: white"></div>
+        <div class="card col-1" id="desvioav2" style="background-color: #458B74; color: white"></div>
+        <div class="card col-1" id="desvioav3" style="background-color: #458B74; color: white"></div>
+        <div class="card col-1" id="maiorav1" style="background-color: #57a1b8; color: white;"></div>
+        <div class="card col-1" id="menorav1" style="background-color: #57a1b8; color: white;"></div>
+        <div class="card col-1" id="maiorav2" style="background-color: #57a1b8; color: white;"></div>
+        <div class="card col-1" id="menorav2" style="background-color: #57a1b8; color: white;"></div>
+        <div class="card col-1" id="maiorav3" style="background-color: #57a1b8; color: white;"></div>
+        <div class="card col-1" id="menorav3" style="background-color: #57a1b8; color: white;"></div>
+    </div>
+    <div class="notas-area">
+        <p>
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Mostras notas individuais</a>
+        </p>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="collapse">
+                    <div class="card card-body" id="notas">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

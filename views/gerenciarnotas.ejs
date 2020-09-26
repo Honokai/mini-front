@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/notas.js"></script>
+
+</head>
+<body>
+<%- include('./navbar') %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col centro">
+            <form action="" method="POST" id="formulario">
+                <% if (erro != false) { %> 
+                    <script>
+                        Swal.fire({
+                            title: 'Eita!',
+                            html: "<%= erro %>",
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                    </script>
+                <% } %>
+                <% if (sucesso != false) { %> 
+                    <script>
+                        Swal.fire({
+                            title: 'Perfeito!',
+                            html: "<%= sucesso %>",
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        })
+                    </script>
+                <% } %>
+                <div class="form-group">
+                  <label for="selectaluno">Aluno</label>
+                  <select type="text" class="form-control custom-select" name="selectaluno" id="selectaluno">
+                      <option value=""></option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="disciplina">Disciplina</label>
+                    <select type="password" class="form-control custom-select" name="disciplina" id="disciplina">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="professor">Professor</label>
+                    <select type="password" class="form-control custom-select" name="professor" id="professor">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="selectaluno">Nota</label>
+                    <input type="text" class="form-control" name="nota" id="nota" placeholder="" pattern="[0-1]?[0-8][.][0-9][0-9]">
+                    <small>(utilize vírgula ou ponto para casas decimais)</small>
+                </div>
+                <div class="form-group">
+                  <label for="acao">Tipo de ação</label>
+                  <select type="password" class="form-control custom-select" name="acao" id="acao">
+                      <option value=""></option>
+                      <option value="adicionar">Adicionar nota</option>
+                      <option value="atualizar">Atualizar nota</option>
+                      <option value="excluir">Excluir nota</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="acao">Avaliação</label>
+                    <select type="password" class="form-control custom-select" name="avaliacao" id="avaliacao">
+                        <option value=""></option>
+                        <option value="av1">Av1</option>
+                        <option value="av2">Av2</option>
+                        <option value="av3">Av3</option>
+                        <option value="aps1">Aps1</option>
+                        <option value="aps2">Aps2</option>
+                    </select>
+                  </div>
+                
+                <button type="submit" id="submit" class="btn btn-primary">Adicionar/Atualizar</button>
+                <button type="submit" id="apagar" class="btn btn-danger">Apagar registro</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

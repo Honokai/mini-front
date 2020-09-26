@@ -1,0 +1,84 @@
+
+body {
+  height: 100vh;
+}
+.centro{
+  text-align: center;
+}
+
+body > div.container-fluid {
+  height: 100%;
+}
+
+ /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
+div.col-12.centro {
+  text-align: center;
+}
+
+div#average {
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.titulo-header {
+  font-weight: bolder;
+}
+
+div#notas {
+  text-align: center;
+}
+
+.pequeno {
+  font-size: 10px;
+}
+
+.notas-area {
+  padding-top: 10px;
+}
+
+.card {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+body > div > div > div.card.col-3.centro {
+  max-height: 200px;
+}
+
+div.card.col-3.centro > * {
+  margin-top: 10px;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+}
+
+body form {
+  max-width: 400px;
+}
+
+.erro {
+  color: red;
+}

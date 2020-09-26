@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="js/visualizar.js"></script>
+    <%- include('./scriptsStyles') %>
+    <title><%= title %></title>
+</head>
+<body>
+<%- include('./navbar') %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-9"> 
+            <div id="notas">
+
+            </div>
+        </div>
+        <div class="card col-3 centro">
+            <form action="" method="POST" id="formulario">
+                <h5>Selecione o aluno</h5>
+                <div class="form-group">
+                <select type="text" class="form-control custom-select" name="selectaluno" id="selectaluno">
+                    <option value=""></option>
+                </select>
+                </div>
+                <button type="submit" id="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
