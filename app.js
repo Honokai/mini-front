@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 const api = require('./routes/testApi');
-const autenticacao = require('./routes/autentica');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const cors = require('cors');
@@ -30,7 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/autenticacao', autenticacao);
 app.use('/api', api);
 app.use('/', indexRouter);
 app.use('/usuarios', usersRouter);
