@@ -24,8 +24,12 @@ window.addEventListener('load', function() {
                 document.getElementById('notas').innerHTML = ""
                 insereNotas(document.getElementById('notas'),resposta)
             } else { 
-                document.getElementById('notas').innerHTML = ""
-                document.getElementById('notas').className = ''
+                document.getElementById('notas').innerHTML = `
+                <div class="row">
+                    <div class="col-12 titulo-header">Não há registro para o aluno informado.</div>
+                </div>
+                `
+                document.getElementById('notas').className = 'card'
             }
         })
     })

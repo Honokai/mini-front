@@ -19,7 +19,6 @@ window.addEventListener('load', () => {
     request.addEventListener('load', () => {
         let resposta = JSON.parse(request.responseText)
         insereNotas(divNotas,resposta)
-        console.log(resposta)
         grafico(resposta)
         grafico2(resposta)
         grafico3(resposta)
@@ -50,19 +49,19 @@ window.addEventListener('load', () => {
         } else {
             divAv3.style.backgroundColor = '#36e164'
         }
-        console.log(desviopadrao.av1.sort()[0])
-        divAv1.innerHTML = `<p style="font-weight: bolder">Média AV1</p>${medias.av1[0]}`
-        divAv2.innerHTML = `<p style="font-weight: bolder">Média AV2</p>${medias.av2[0]}`
-        divAv3.innerHTML = `<p style="font-weight: bolder">Média AV3</p>${medias.av3[0]}`
-        divD1.innerHTML = `<p style="font-weight: bolder;">Desvio AV1</p>${desvio.av1[0]}`
-        divD2.innerHTML = `<p style="font-weight: bolder;">Desvio AV2</p>${desvio.av2[0]}`
-        divD3.innerHTML = `<p style="font-weight: bolder;">Desvio AV3</p>${desvio.av3[0]}`
-        document.getElementById('maiorav1').innerHTML = `<p style="font-weight: bolder;">Maior AV1</p>${desviopadrao.av1.sort().reverse()[0]}`
-        document.getElementById('menorav1').innerHTML = `<p style="font-weight: bolder">Menor AV1</p>${desviopadrao.av1.sort()[0]}`
-        document.getElementById('maiorav2').innerHTML = `<p style="font-weight: bolder">Maior AV2</p>${desviopadrao.av2.sort().reverse()[0]}`
-        document.getElementById('menorav2').innerHTML = `<p style="font-weight: bolder">Menor AV2</p>${desviopadrao.av2.sort()[0]}`
-        document.getElementById('maiorav3').innerHTML = `<p style="font-weight: bolder">Maior AV3</p>${desviopadrao.av3.sort().reverse()[0]}`
-        document.getElementById('menorav3').innerHTML = `<p style="font-weight: bolder">Menor AV3</p>${desviopadrao.av3.sort()[0]}`
+        divAv1.innerHTML = `<p style="font-weight: bolder">Média AV1</p><span style="font-size: 30px">${medias.av1[0]}</span>`
+        divAv2.innerHTML = `<p style="font-weight: bolder">Média AV2</p><span style="font-size: 30px">${medias.av2[0]}</span>`
+        divAv3.innerHTML = `<p style="font-weight: bolder">Média AV3</p><span style="font-size: 30px">${medias.av3[0]}</span>`
+        divD1.innerHTML = `<p style="font-weight: bolder;">Desvio AV1</p><span style="font-size: 30px">${desvio.av1[0]}</span>`
+        divD2.innerHTML = `<p style="font-weight: bolder;">Desvio AV2</p><span style="font-size: 30px">${desvio.av2[0]}</span>`
+        divD3.innerHTML = `<p style="font-weight: bolder;">Desvio AV3</p><span style="font-size: 30px">${desvio.av3[0]}</span>`
+        document.getElementById('maiorav1').innerHTML = `<p style="font-weight: bolder;">Maior AV1</p><span style="font-size: 30px">${desviopadrao.av1.sort(function(a,b) { return a - b;}).reverse()[0]}</span>`
+        document.getElementById('menorav1').innerHTML = `<p style="font-weight: bolder">Menor AV1</p><span style="font-size: 30px">${desviopadrao.av1.sort(function(a,b) { return a - b;})[0]}</span>`
+        document.getElementById('maiorav2').innerHTML = `<p style="font-weight: bolder">Maior AV2</p><span style="font-size: 30px">${desviopadrao.av2.sort(function(a,b) { return a - b;}).reverse()[0]}</span>`
+        document.getElementById('menorav2').innerHTML = `<p style="font-weight: bolder">Menor AV2</p><span style="font-size: 30px">${desviopadrao.av2.sort(function(a,b) { return a - b;})[0]}</span>`
+        document.getElementById('maiorav3').innerHTML = `<p style="font-weight: bolder">Maior AV3</p><span style="font-size: 30px">${desviopadrao.av3.sort(function(a,b) { return a - b;}).reverse()[0]}</span>`
+        document.getElementById('menorav3').innerHTML = `<p style="font-weight: bolder">Menor AV3</p><span style="font-size: 30px">${desviopadrao.av3.sort(function(a,b) { return a - b;})[0]}</span>`
+        console.log(desviopadrao.av3)
     })
 })
 
@@ -132,12 +131,12 @@ async function grafico(array) {
                 label: 'nota AV1',
                 data: data.av1,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -153,11 +152,20 @@ async function grafico(array) {
         options: {
             scales: {
                 yAxes: [{
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.5)'
+                    },
                     ticks: {
                         beginAtZero: true
                     }
                 }]
-            }
+            },
+            legend: {
+                display: true,
+                labels: {
+                    fontColor:'white'
+                }
+            },
         }
     });
 }
@@ -178,12 +186,12 @@ async function grafico2(array) {
                 label: 'nota AV2',
                 data: data.av2,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -199,6 +207,9 @@ async function grafico2(array) {
         options: {
             scales: {
                 yAxes: [{
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.5)'
+                    },
                     ticks: {
                         beginAtZero: true
                     }
@@ -224,12 +235,12 @@ async function grafico3(array) {
                 label: 'nota AV3',
                 data: data.av3,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -245,6 +256,9 @@ async function grafico3(array) {
         options: {
             scales: {
                 yAxes: [{
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.5)'
+                    },
                     ticks: {
                         beginAtZero: true
                     }

@@ -6,8 +6,17 @@ body {
   text-align: center;
 }
 
-body > div.container-fluid {
-  height: 100%;
+div.container-fluid {
+  min-height: 92%;
+}
+
+div.container-fluid.black {
+  background-color: #131111;
+  color: #fff;
+}
+
+div.row {
+  margin: 0;
 }
 
  /* width */
