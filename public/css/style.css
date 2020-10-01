@@ -18,6 +18,39 @@ div.container-fluid.black {
 div.row {
   margin: 0;
 }
+div.card.col-1.av {
+  background-color: #c54f4f; 
+  color: white; 
+  margin: 5px;
+}
+
+div.card.col-1.av:hover {
+  background-color: #2b7aca;
+  transition: 500ms;
+}
+
+
+div.card.col-1.desvio {
+  background-color: #3d4ca2; 
+  color: white; 
+  margin: 5px;
+}
+
+div.card.col-1.desvio:hover {
+  background-color: #738faa;
+  transition: 500ms;
+}
+
+div.card.col-1.avs {
+  background-color: #57a1b8; 
+  color: white; 
+  margin: 5px;
+}
+
+div.card.col-1.avs:hover {
+  background-color: #2b7aca;
+  transition: 500ms;
+}
 
  /* width */
 ::-webkit-scrollbar {
